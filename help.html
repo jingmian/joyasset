@@ -1,0 +1,86 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>比原数字资产拍卖交易工具（演示） - BytomAsset Auction Tool(Demo) </title>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+<div class="container-fluid">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand logo" href="./">数字资产拍卖</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+        <li><a href="#" onclick="history.back();">返回</a></li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+<p>　　基于比原数字资产自主发行的特性，这里提供一个开放的拍卖和交换信息交流工具，并有效结合了DID、IPFS和PPk开放协议等要素。供交易需求双方自主选用和自行成交。本工具是完全开放的，不提供居中担保和裁判规则，无法保证交易双方的真实意愿和实际行为，请自主决定、自担风险。</p>
+
+<h3 align="center"><font color="#F00">注意：此演示版本运行在比原测试链上，所有数据仅供测试，不作为实际交易依据！</font></h3>
+
+<h3>　浏览拍卖信息</h3>
+<ul>
+<p>浏览拍卖信息不需要登录，可以直接访问主页即可浏览当前拍卖的比原数字资产信息，点击具体标识可查看详情，并根据其中的信息去自主联系沟通，确认购买意向时再登录和报价。</p>
+</ul>
+
+<h3>　用户注册和登录</h3>
+<ul>
+<p>在此示例版本可以在比原测试链上快速注册一个用户，并获得一个兼容DID（去中心化身份标识）的ODIN标识，类似 did:ppk:joy/btmid/alice#。对应该身份标识的用户属性数据采用了DID的定义规范，可参考：https://w3c-ccg.github.io/did-spec/</p>
+<p>注册获得用户标识后就可以快速登录了。</p>
+</ul>
+
+
+<h3>　发布拍卖信息</h3>
+<ul>
+<p>用户登录后，点击“我的帐号”，即可查看本人所注册使用的用户相关信息，可以查看本人拍卖和参拍的记录状态，也可以点击“发起拍卖”来填写和发布新的拍卖信息。</p>
+</ul>
+
+<h3>　参与拍卖报价</h3>
+<ul>
+<p>需要购买比原数字资产的朋友，可以浏览已有的拍卖信息，对于有意购买的比原数字资产，可以点击页面里的“我要报价”来填写和发布报价，等待拍卖方的确认。</p>
+</ul>
+
+<h3>　拍卖成交和付款</h3>
+<ul>
+<p>1.拍卖方可以浏览已报价记录，并在有满意报价时确认接受对应报价，并将此确认报价信息存证到比原测试链上。</p>
+<p>2.报价成交后，后续的数字资产转账过户交易采取“款到发货”，即求购方先把对应报价的数字加密货币（默认为比原测试币）打入资产原拥有者在链上注册登记的比原测试钱包地址，并在付款后将该支付交易存证到比原测试链上。</p>
+<p>3.资产原拥有者在收到对应报价数量的数字加密货币后，将对应数字资产转账到求购者的比原测试钱包地址，并在拍卖纪录处确认已转账过户。</p>
+<p>4.求购方需要使用比原测试客户端或钱包，确认收到对应数字资产后，在拍卖纪录处确认已收到对应资产，交易才算最终完成。</p>
+</ul>
+
+<h3>　资产安全提示</h3>
+<ul>
+<p>为尽量提高资金安全，求购方务必在参与测试交易前确认卖出方比原测试钱包地址，用作交易转账地址，并通过链上存证相关确认报价和支付信息，不要随意向通过微信、Telegram等聊天工具联系时提供的地址转账，以免真实资金受损。</p>
+<p>可以通过多种方式来查询比原账户和数字资产等信息，包括但不限于<a target="_blank" href="http://btmdemo.ppkpub.org:9888/">比原测试客户端</a>、比原钱包Chrome插件等方法。</p>
+</ul>
+
+<h3>　其它</h3>
+<ul>
+<p>测试过程中发现的功能错误和问题建议，可以联系电子邮件 ppkpub@gmail.com 或微信 ppkpub0 </p>
+</ul>
+
+<div class="container-fluid footer">
+PPkPub BytomAsset Auction Demo 0.1 &copy; 2019. Released under the <a href="http://opensource.org/licenses/mit-license.php">MIT License</a>.
+</div>
+</body>
+</html>
+
+
