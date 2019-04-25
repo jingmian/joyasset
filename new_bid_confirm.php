@@ -4,6 +4,11 @@
 /*    Released under the MIT License.     */
 require_once "ppk_swap.inc.php";
 
+if(strlen($g_currentUserODIN)==0){
+  Header('Location: login.php');
+  exit(-1);
+}
+
 $sell_rec_id=safeReqNumStr('sell_rec_id');
 $coin_type=safeReqChrStr('coin_type');
 $bid_amount=safeReqNumStr('bid_amount');

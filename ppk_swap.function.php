@@ -198,6 +198,8 @@ function getStatusLabel($status_code){
             return '交易取消';
         case PPK_ODINSWAP_STATUS_EXPIRED:
             return '到期确拍中';
+        case PPK_ODINSWAP_STATUS_NONE:
+            return '到期流拍';
         case PPK_ODINSWAP_STATUS_FINISH:
             return '已完成';
         default:
@@ -209,8 +211,15 @@ function getStatusLabel($status_code){
 //自动更新已到期的拍卖纪录状态
 function autoUpdateExpiredSells(){ 
     Global $g_dbLink;
-    $sql_str="update sells set status_code='".PPK_ODINSWAP_STATUS_EXPIRED."' where end_utc<=".time()." and status_code=".PPK_ODINSWAP_STATUS_BID.";";
+    $nowtime=time();
+    
+    //更新到期但有效参拍的状态
+    $sql_str="update sells,bids set sells.status_code='".PPK_ODINSWAP_STATUS_EXPIRED."' where sells.end_utc<=".$nowtime." and sells.status_code=".PPK_ODINSWAP_STATUS_BID." and sells.sell_rec_id=bids.sell_rec_id and bids.status_code=".PPK_ODINSWAP_STATUS_BID." ;";
     //echo $sql_str;
+    $result=@mysqli_query($g_dbLink,$sql_str);
+    
+    //更新剩下的到期但无有效参拍的记录状态
+    $sql_str="update sells set status_code='".PPK_ODINSWAP_STATUS_NONE."' where end_utc<=".$nowtime." and status_code=".PPK_ODINSWAP_STATUS_BID.";";
     $result=@mysqli_query($g_dbLink,$sql_str);
 }
 

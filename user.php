@@ -4,6 +4,11 @@
 /*    Released under the MIT License.     */
 require_once "ppk_swap.inc.php";
 
+if(strlen($g_currentUserODIN)==0){
+  Header('Location: login.php');
+  exit(-1);
+}
+
 $original_user_odin=originalReqChrStr('user_odin');
 
 if(strlen($original_user_odin)==0)
@@ -167,7 +172,7 @@ for($ss=0;$ss<count($tmp_odin_list) ;$ss++){
 
 -->
   <div class="form-group">
-    <label for="remark" class="col-sm-2 control-label">用户定义原文</label>
+    <label for="remark" class="col-sm-2 control-label">采用DID规范的用户定义</label>
     <div class="col-sm-10">
      <textarea class="form-control" id="original_content" rows=10 ><?php safeEchoTextToPage($tmp_user_info['original_content']);?></textarea>
     </div>

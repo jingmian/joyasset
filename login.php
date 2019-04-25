@@ -5,6 +5,9 @@ switch($_REQUEST['backpage']){ //严格检查和组织网址，避免注入风�
     case 'new_bid':
         $back_url='new_bid.php?sell_rec_id='.safeReqNumStr('sell_rec_id');
         break;
+    case 'new_sell':
+        $back_url='new_sell.php';
+        break;
     default:
         $back_url='./';
 }

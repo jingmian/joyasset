@@ -32,6 +32,8 @@ define('PPK_ODINSWAP_STATUS_PAY',2); //状态定义:已付款
 define('PPK_ODINSWAP_STATUS_TRANSFER',3); //状态定义:资产已过户
 define('PPK_ODINSWAP_STATUS_CANCEL',4); //状态定义:交易取消
 define('PPK_ODINSWAP_STATUS_EXPIRED',5); //状态定义:到期确拍中
+define('PPK_ODINSWAP_STATUS_NONE',6); //状态定义:到期流拍
+
 define('PPK_ODINSWAP_STATUS_FINISH',9); //状态定义:已完成
 
 

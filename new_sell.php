@@ -4,6 +4,11 @@
 /*    Released under the MIT License.     */
 require_once "ppk_swap.inc.php";
 
+if(strlen($g_currentUserODIN)==0){
+  Header('Location: login.php?backpage=new_sell');
+  exit(-1);
+}
+
 $asset_id=safeReqChrStr('asset_id');
 /*
 if(strlen($asset_id)==0){

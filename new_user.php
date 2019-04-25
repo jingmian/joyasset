@@ -5,6 +5,9 @@ switch($_REQUEST['backpage']){ //严格检查和组织网址，避免注入风�
     case 'new_bid':
         $back_url='new_bid.php?sell_rec_id='.safeReqNumStr('sell_rec_id');
         break;
+    case 'new_sell':
+        $back_url='new_sell.php';
+        break;
     default:
         $back_url='./';
 }
@@ -131,27 +134,27 @@ function init(){
 
 
 function sendBtmTX() {
-  if(document.getElementById('user_name').value.length == 0 ){
+  if(document.getElementById('user_name').value.trim().length == 0 ){
     alert("请输入有效的用户名称！");
     return false;
   }
   
-  if(document.getElementById('user_address').value.length == 0 ){
+  if(document.getElementById('user_address').value.trim().length == 0 ){
     alert("请输入有效的比原钱包地址！");
     return false;
   }
   
-  if(document.getElementById('pub_key').value.length == 0 ){
+  if(document.getElementById('pub_key').value.trim().length == 0 ){
     alert("请输入有效的公钥！");
     return false;
   }
   
-  if(document.getElementById('user_avtar_url').value.length == 0 ){
+  if(document.getElementById('user_avtar_url').value.trim().length == 0 ){
     alert("请输入有效的用户头像图片URL！");
     return false;
   }
 
-  if(document.getElementById('game_trans_fee_btm').value.length == 0 ){
+  if(document.getElementById('game_trans_fee_btm').value.trim().length == 0 ){
     alert('请输入有效的转账GAS费用，缺省为 <?php echo TX_GAS_AMOUNT_mBTM/1000; ?> BTM！');
     return false;
   }
@@ -190,23 +193,23 @@ function sendBtmTX() {
 function updateTransData(){
   var game_trans_fee_btm = <?php echo TX_GAS_AMOUNT_mBTM/1000; ?>;
   
-  var user_avtar_url=document.getElementById('user_avtar_url').value;
+  var user_avtar_url=document.getElementById('user_avtar_url').value.trim();
   if(user_avtar_url.length == 0 ){
     return false;
   }
   document.getElementById('user_avtar_img').src=user_avtar_url;
   
-  var user_name=document.getElementById('user_name').value;
+  var user_name=document.getElementById('user_name').value.trim();
   if(user_name.length == 0 ){
     return false;
   }
   
-  var user_address=document.getElementById('user_address').value;
+  var user_address=document.getElementById('user_address').value.trim();
   if(user_address.length == 0 ){
     return false;
   }
   
-  var pub_key=document.getElementById('pub_key').value;
+  var pub_key=document.getElementById('pub_key').value.trim();
   if(pub_key.length == 0 ){
     return false;
   }

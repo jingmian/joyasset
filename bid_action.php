@@ -4,6 +4,11 @@
 /*    Released under the MIT License.     */
 require_once "ppk_swap.inc.php";
 
+if(strlen($g_currentUserODIN)==0){
+  Header('Location: login.php');
+  exit(-1);
+}
+
 $bid_rec_id=safeReqNumStr('bid_rec_id');
 $action_type=safeReqChrStr('action_type');
 $seller_address=safeReqChrStr('seller_address');
